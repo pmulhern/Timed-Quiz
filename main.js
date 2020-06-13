@@ -1,70 +1,20 @@
-
-// First Timer
-// const startingMinutes = .10;
-// let time = startingMinutes * 60;
-
-// const countdownEl = document.getElementById("count");
-
-// setInterval(updateCountdown, 1000);
-
-// function updateCountdown() {
-//     const minutes = Math.floor(time/60);
-//     let seconds = time % 60;
-
-//     seconds = seconds < 10 ? '0' + seconds : seconds;
-
-//     countdownEl.innerHTML = `Time: ${minutes}: ${seconds}`;
-//     time--;
-   
-//     if (time < 0) {
-//         clearInterval(updateCountdown);
-//     }
-
-// }
-
-// if (time < 0) {
-//     clearInterval(updateCountdown);
-// }
-
-
-//Second Timer
-// const countdownEl = document.getElementById("count");
-
-// var time = 3;
-// setInterval(function(){
-//   console.log(time);
-//   time--
-//   if (time <=0) {
-//     clearInterval(time = 0);
-//   }
-// }, 1000);
-
-// Third Timer
-
+//create a timer set to 60 seconds
 var time = 60
 
 function timer() {
     var x = setInterval(function() {
-    document.getElementById("count").innerHTML="Timer:"+" "+time+" seconds";
+    document.getElementById("count").innerHTML="Time:"+" "+time+" seconds";
     time=time-1;
 
     if(time <+0) {
             clearInterval(x);    
-        }
-
-
+        }else if (
+            currentQuestionIndex > lastQuestion-1)
+            clearInterval(x);
 }, 1000);
 }
 
-
-// create our questions
-
-const startButton = document.getElementById("start-btn")
-
-startButton.addEventListener("click", startQuiz)
-
-
-
+//create variables
 let score = 0;
 let questionEl = document.getElementById("question");
 let choiceA = document.getElementById("A");
@@ -74,7 +24,7 @@ let choiceD = document.getElementById("D");
 let runningQuestion = 0;
 let currentQuestionIndex;
 
-
+// create our questions
 let questions = [
     {
         question : "Who is the starting Center for 76ers?",
@@ -93,39 +43,82 @@ let questions = [
     },{
         question : "Who did Tobias Harris play for before the 76ers?",
         choiceA : "Minnesota Timberwolves",
-        choiceB : "Chicage Bulls",
+        choiceB : "Chicago Bulls",
         choiceC : "LA Clippers",
         choiceD : "Miami Heat",
         correct : "C"
+    },{
+        question : "Who is the 76ers current Head Coach?",
+        choiceA : "Maurice Cheeks",
+        choiceB : "Doug Collins",
+        choiceC : "Larry Brown",
+        choiceD : "Brett Brown",
+        correct : "D"
+    },{
+        question : "Allen Iverson's nickname was...",
+        choiceA : "The Process",
+        choiceB : "The King",
+        choiceC : "The Answer",
+        choiceD : "The Rock",
+        correct : "C"
+    },{
+        question : "Julius Erving announced his retirement from the NBA in which year?",
+        choiceA : "1985",
+        choiceB : "1986",
+        choiceC : "1987",
+        choiceD : "1988",
+        correct : "B"
+    },{
+        question : "How many times have the 76ers been to the NBA finals?",
+        choiceA : "4",
+        choiceB : "7",
+        choiceC : "9",
+        choiceD : "12",
+        correct : "C"
+    },{
+        question : "What player won the NBA Championship MVP in 1983?",
+        choiceA : "Moses Malone",
+        choiceB : "Julius Irving",
+        choiceC : "Maurice Cheeks",
+        choiceD : "Bobby Jones",
+        correct : "A"
+    },{
+        question : "Which of the following players did NOT win Rookie of the Year?",
+        choiceA : "Ben Simmons",
+        choiceB : "Allen Iverson",
+        choiceC : "Joel Embiid",
+        choiceD : "Michael Carter Williams",
+        correct : "C"
+    },{
+        question : "Who is the all time point leader?",
+        choiceA : "Allen Iverson",
+        choiceB : "Hal Greer",
+        choiceC : "Julius Irving",
+        choiceD : "Dolph Schayes",
+        correct : "B"
     }
+    
 ];
 
 const lastQuestion = questions.length -1;
 
-// function startQuiz() {
-//     currentQuestionIndex = 0
-//     setNextQuestion()
+//create Event Listener to start quiz 
+const startButton = document.getElementById("start-btn")
+startButton.addEventListener("click", startQuiz)
 
-// }
-
-
-// function setNextQuestion() {
-//     showQuestion(currentQuestionIndex)
-// }
-
-// function showQuestion(question) {
-//     questionEl.innerText=questions.runningQuestion.question
-
-// }
-
-// function selectAnswer() {
-
-// }
+//create Event Listener to retake quiz by refreshing the page 
+const retakeButton = document.getElementById("retake-btn")
+retakeButton.addEventListener("click", retakeQuiz)
 
 function startQuiz() {
     currentQuestionIndex = 0;
     setNextQuestion();
     timer();
+    
+}
+
+function retakeQuiz () {
+    location.reload();
 }
 
 function setNextQuestion() {
@@ -144,57 +137,41 @@ function checkAnswer(answer){
     if( answer == questions[currentQuestionIndex].correct){
         // answer is correct
         score++;
+        document.getElementById("display").innerHTML = "Correct!";
     }else{
         // answer is wrong
-        time -= 10
+        time -= 5
+        document.getElementById("display").innerHTML = "Incorrect";
     }
     count = 0;
-    if(currentQuestionIndex < lastQuestion){
+    if(currentQuestionIndex < lastQuestion && time >= 0) {
         currentQuestionIndex++;
         showQuestion();
     }else{
         // end the quiz and show the score
         showScore();
     }
+    
 }
 
 function showScore() {
+    alert("Your score is " + score)
     console.log(score)
+    timer()
 }
 
-
-// for (i = 0; i < questions.length; i++) {
-//     changeText ();
-// }
-
-// var score = 0
-// var questions = [
-//     {
-//         prompt: "What sound does a rooster make?\n (a) quack, quack\n (b) cock a doodle do\n (c) moo\n (d) baaaaaa",
-//         answer: "b"
-
-//     },
-//     {
-//         prompt: "What sound does a duck make?\n (a) quack, quack\n (b) cock a doodle do\n (c) moo\n (d) baaaaaa",
-//         answer: "a"
-
-//     },
-//     {
-//         prompt: "What sound does a sheep make?\n (a) quack, quack\n (b) cock a doodle do\n (c) moo\n (d) baaaaaa",
-//         answer: "d"
-
-//     },
-// ]
-
-
-// for(var i = 0; i < questions.length; i++) {
-//  var response = window.prompt(questions[i].prompt);
-//     if(response == questions[i].answer) {
-//         alert("Correct");
-//         score++ ;
+// function hideStartBtn() {
+//     var x = document.getElementById("start-btn");
+//     if (x.style.display === "none") {
+//       x.style.display = "block";
 //     } else {
-//         alert("Incorrect");
-//         }
+//       x.style.display = "none";
+
 // }
 
-// alert("You got " + score + " out of " + questions.length + " correct");
+// function timeUp() {
+//     if (time == 0) {
+//     prompt("GAME OVER!");
+//     showScore();
+// }
+
