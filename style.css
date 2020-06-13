@@ -1,0 +1,79 @@
+/* Adding the background to all 3 html pages*/
+body {
+background: url(sixers_bg.jpg)
+
+}
+
+/* Formatting my name on the nav bar*/
+#brand {
+
+    font-size: xx-large;
+    margin: 15px, 10px, 15px, 10px;
+    padding: 15px, 10px, 15px, 10px;
+    }
+
+/* Adding the Hover Format to the About, Contact Me and Portfolio links on the nav bar*/
+.nav-link:hover {
+    background-color: blue;
+    }
+
+/* Adding an Active Format to the About, Contact Me and Portfolio links on the nav bar*/
+.nav-link:active {
+    font-size: x-large;
+    font-weight: bold;
+    }
+
+/* Centers the About Me Card on the About tab*/
+#quiz_display {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#count {
+    text-align: right;
+}
+
+/* Centers the Contact Me Card on the Contact Me tab*/
+#contact {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.button {
+    display: inline-block;
+    width : 135px;
+    text-align: center;
+    border : 1px solid grey;
+    border-radius: 5px;
+    cursor: pointer;
+    padding : 5px;
+    margin : 5px 0px 5px 230px
+  }
+
+/* Formatting for the Header on the About Me tab*/
+#quiz_window {
+    color: blue;
+    font-weight: bold;
+    font-size: xx-large;
+    text-align: center;
+    }
+
+/* Formatting for the Header on the About Me tab*/
+#question {
+color: black;
+font-weight: bold;
+font-size: large;
+text-align: left;
+margin-left: 47px;
+}
+
+/* Formatting the line that separates the headers from the sections on the main cards/ forms*/  
+hr {
+        display: block;
+        height: 10px;
+        border: 0;
+        border-top: 1px solid #ccc;
+        margin: 1em 0;
+        padding: 0;
+    }
+

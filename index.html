@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- Link to CSS style sheet -->
+    <link rel="stylesheet" href="./style.css">  
+       <title>76ers Quiz</title>
+  </head>
+  <body>
+
+    <!-- Navigation bar leveraging bootstrap framework: About, Contact & Portfolio links -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">  <img src="sixers_nav.jpg" alt="76ers">  </a>
+        <a class="navbar-brand" id="brand" href="#"> Test Your Sixers Knowledge!!</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" id="start-btn">Start Quiz <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" >See High Scores <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+  <p id = "count" onclick="updateCountdown">Time: 10: 00</p>
+    
+    <br> <br>
+   
+    <!-- Main About Me Section.  Leveraging a card class from Bootstrap for responsive formatting -->
+    <Main class="card mb-12 hide" id ="quiz_display" style="max-width: 600px;">
+        <div class="row">
+            <div class="col-sm-12">
+                <h5 class="card-title" id="quiz_window" >Quiz Window</h5>
+            </div> 
+                
+        </div>
+        
+        <hr class="mx-5">   
+         
+        <div class="row"> 
+          <div class="col-sm-12">
+              <h3 id="question"> Clap your hands everbody for Philadelphia 76ers </h3> 
+          </div>
+        </div>
+
+        <div class="row"> 
+          <div class="col-sm-12 align-items-center">
+              <button class="button" id="A" onclick="checkAnswer('A')">1, 2, 3-4-5 </button>
+          </div>
+        </div>
+          
+        <div class="row"> 
+          <div class="col-sm-12">
+              <button class="button" id="B" onclick="checkAnswer('B')">Sixers</button>
+          </div>
+        </div>
+
+        <div class="row"> 
+          <div class="col-sm-12">
+              <button class="button" id="C" onclick="checkAnswer('C')">10, 9, 8</button>
+          </div>
+        </div>
+          
+        <div class="row"> 
+          <div class="col-sm-12 ml-12">
+              <button class="button" id="D" onclick="checkAnswer('D')">76ers</button>
+          </div>
+        </div>
+
+         <!-- <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+          <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+          <div class="choice" id="C" onclick="checkAnswer('C')"></div>-->
+      </div> 
+    </Main>
+  
+    <br> <br>
+  
+  <script>/*  
+  <!-- Footer -->
+<footer class="page-footer font-small blue-grey lighten-5" id="sticky_footer">
+
+    <div style="background-color: #21d192;">
+      <div class="container">
+  
+        <!-- Grid row-->
+        <div class="row py-12 d-flex align-items-center">
+  
+          <!-- Grid column -->
+          <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+            <h6 class="mb-0">Get connected with us on social networks!</h6>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-6 col-lg-7 text-center text-md-right">
+             
+            <!-- GitHub-->
+             <a class="gplus-ic" href="https://github.com/pmulhern" target="_blank">
+              <i class="fab fa-github white-text mr-4" ></i>
+            </a>
+            <!--Linkedin -->
+            <a class="li-ic" href="https://www.linkedin.com/in/patrick-mulhern-1a82b66b?trk=profile-badge" target="_blank">
+              <i class="fab fa-linkedin-in white-text mr-4"> </i>
+            </a>
+            <!-- Facebook -->
+            <a class="fb-ic" href="https://www.facebook.com/profile.php?id=100017525283892" target="_blank">
+              <i class="fab fa-facebook-f white-text mr-4"> </i>
+            </a>
+            <!-- Twitter -->
+            <a class="tw-ic" href="https://twitter.com/PatrickMulher13" target="_blank">
+              <i class="fab fa-twitter white-text mr-4"> </i>
+            </a>
+           
+          </div>
+          <!-- Grid column -->
+  
+        </div>
+        <!-- Grid row-->
+  
+      </div>
+    </div>
+  
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left mt-5">
+  
+      <!-- Grid row -->
+      <div class="row mt-3 dark-grey-text">
+  
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+  
+          <!-- Content -->
+          <h6 class="text-uppercase font-weight-bold">P.J. Web Development</h6>
+          <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>Our company offers an array of web development services.  Check out the Portfolio pages for examples as well as our GitHub link to view our code base.</p>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+  
+          <!-- Web Services - Just making stuff up for now -->
+          <h6 class="text-uppercase font-weight-bold">Web Services</h6>
+          <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>
+            <a class="dark-grey-text" >HTML Refactoring</a>
+          </p>
+          <p>
+            <a class="dark-grey-text" >Responsive Web Page Design</a>
+          </p>
+          <p>
+            <a class="dark-grey-text" >Unique and Personal Website Schemas</a>
+          </p>
+          <p>
+            <a class="dark-grey-text" >Something JaveScript I haven't learned yet  lol</a>
+          </p>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+  
+          <!-- Links -->
+          <h6 class="text-uppercase font-weight-bold">Back End Services</h6>
+          <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>
+            <a class="dark-grey-text" >Query Development</a>
+          </p>
+          <p>
+            <a class="dark-grey-text" >Effeciency Protocols</a>
+          </p>
+          <p>
+            <a class="dark-grey-text" >Custom Report Development</a>
+          </p>
+
+  
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+  
+          <!-- Links -->
+          <h6 class="text-uppercase font-weight-bold">Contact</h6>
+          <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>
+            <i class="fas fa-home mr-3"></i> Philadelphia, PA 19114, US</p>
+          <p>
+            <i class="fas fa-envelope mr-3"></i> Patrick.J.Mulhern1@gmail.com</p>
+          <p>
+            <i class="fas fa-phone mr-3"></i> (215) 813-4817</p>
+          <p>
+            <i class="fas fa-print mr-3"></i> (267) 498-7213</p>
+  
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+    <!-- Footer Links -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center text-black-50 py-3">© 2020 Copyright:
+      <a class="dark-grey-text" href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>*/
+</script>  
+  <script src="main.js"></script>  
+
+</body>
+</html>
