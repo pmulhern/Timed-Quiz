@@ -6,10 +6,10 @@ function timer() {
     document.getElementById("count").innerHTML="Time:"+" "+time+" seconds";
     time=time-1;
 
-    if(time <+0) {
+    if(time <=0) {
             clearInterval(x);    
         }else if (
-            currentQuestionIndex > lastQuestion-1)
+            currentQuestionIndex >= lastQuestion)
             clearInterval(x);
 }, 1000);
 }
@@ -96,9 +96,12 @@ let questions = [
         choiceC : "Julius Irving",
         choiceD : "Dolph Schayes",
         correct : "B"
-    }
-    
+    } 
+   
 ];
+
+
+
 
 const lastQuestion = questions.length -1;
 
@@ -133,6 +136,11 @@ function showQuestion () {
     document.getElementById("D").innerHTML=questions[currentQuestionIndex].choiceD;
 }
 
+//Hide the quiz form.  Function called at end of quiz.
+function hideQuizForm () {
+    document.getElementById('quiz_display').style.visibility='hidden';
+}
+
 function checkAnswer(answer){
     if( answer == questions[currentQuestionIndex].correct){
         // answer is correct
@@ -150,6 +158,7 @@ function checkAnswer(answer){
     }else{
         // end the quiz and show the score
         showScore();
+        hideQuizForm();
     }
     
 }
@@ -157,8 +166,18 @@ function checkAnswer(answer){
 function showScore() {
     alert("Your score is " + score)
     console.log(score)
-    timer()
+    return
 }
+
+// var hidden = false;
+// function action() {
+//     hidden = !hidden;
+//     if(hidden) {
+//         document.getElementById('togglee').style.visibility = 'hidden';
+//     } else {
+//         document.getElementById('togglee').style.visibility = 'visible';
+//     }
+// }
 
 // function hideStartBtn() {
 //     var x = document.getElementById("start-btn");

@@ -33,12 +33,6 @@ background-size: cover;
     text-align: center;
 }
 
-/* Centers the Contact Me Card on the Contact Me tab*/
-#contact {
-    margin-right: auto;
-    margin-left: auto;
-}
-
 .button {
     display: inline-block;
     width : 135px;
@@ -48,6 +42,7 @@ background-size: cover;
     cursor: pointer;
     padding : 5px;
     margin : 5px 0px 5px 230px
+    
   }
 
   #display {
@@ -60,7 +55,7 @@ background-size: cover;
     margin : 5px 0px 20px 230px
   }
 
-/* Formatting for the Header on the About Me tab*/
+/* Formatting for the Header on the Quiz Window tab*/
 #quiz_window {
     color: blue;
     font-weight: bold;
