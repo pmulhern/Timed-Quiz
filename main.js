@@ -1,10 +1,12 @@
 //create a timer set to 60 seconds
-var time = 5
+var time = 60
 
 function timer() {
     var x = setInterval(function() {
     document.getElementById("count").innerHTML="Time:"+" "+time+" seconds";
     time=time-1;
+
+    if(time<0){time=0 && hideQuizForm()}
 
     if(time <=-1) {
             clearInterval(x);    
@@ -23,6 +25,12 @@ let choiceC = document.getElementById("C");
 let choiceD = document.getElementById("D");
 let runningQuestion = 0;
 let currentQuestionIndex;
+
+// let userScoreSpan = document.querySelector("userScore");
+// let userNameSpan = document.querySelector("userName");
+let submitBtn = document.getElementById("Submit");
+let clearBtn = document.getElementById("Clear");
+let userScore = score;
 
 // create our questions
 let questions = [
@@ -100,7 +108,9 @@ let questions = [
    
 ];
 
-
+function enterName() {
+    let userName = getElementById("userName").value;
+}
 
 
 const lastQuestion = questions.length -1;
@@ -109,15 +119,26 @@ const lastQuestion = questions.length -1;
 const startButton = document.getElementById("start-btn")
 startButton.addEventListener("click", startQuiz)
 
+
 //create Event Listener to retake quiz by refreshing the page 
 const retakeButton = document.getElementById("retake-btn")
 retakeButton.addEventListener("click", retakeQuiz)
+
+
+
+function ReTakeBtn() {
+    document.getElementById("retake-btn").id = "newid";
+}
+
+
 
 function startQuiz() {
     currentQuestionIndex = 0;
     setNextQuestion();
     timer();
-    
+    ReTakeBtn();
+    document.getElementById('start-btn').style.visibility='hidden';
+       
 }
 
 function retakeQuiz () {
@@ -137,6 +158,11 @@ function showQuestion () {
 }
 
 
+
+document.getElementById('userName').style.display = "none";
+// document.getElementById('retake-btn').style.visibility='hidden';
+
+
 // Hide the quiz form.  Function called at end of quiz.
 function hideQuizForm () {
     document.getElementById('question').style.visibility='hidden';
@@ -144,13 +170,15 @@ function hideQuizForm () {
     document.getElementById('B').style.visibility='hidden';
     document.getElementById('C').style.visibility='hidden';
     document.getElementById('D').style.visibility='hidden';
-    document.getElementById('userScore').innerText="You Score is " + score*10;
+    document.getElementById('display').style.visibility='hidden';
+    document.getElementById('userScore').innerText="Your Score is " + parseInt(score+time);
+    document.getElementById("userName").style.display = "block";
 }
 
 function checkAnswer(answer){
-    if( answer == questions[currentQuestionIndex].correct){
+    if( answer == questions[currentQuestionIndex].correct && time > 0) {
         // answer is correct
-        score++;
+        score += 10;
         document.getElementById("display").innerHTML = "Correct!";
     }else{
         // answer is wrong
@@ -158,7 +186,7 @@ function checkAnswer(answer){
         document.getElementById("display").innerHTML = "Incorrect";
     }
     count = 0;
-    if(currentQuestionIndex < lastQuestion && time >= 0) {
+    if(currentQuestionIndex < lastQuestion && time > 0) {
         currentQuestionIndex++;
         showQuestion();
     }else{
@@ -169,33 +197,35 @@ function checkAnswer(answer){
     
 }
 
-// function showScore() {
-//     alert("Your score is " + score)
-//     console.log(score)
-//     return
+// function renderLastRegistered() {
+// var userScore = localStorage.getItem("userScore");
+// var userName = localStorage.getItem("userName");
+
+// if (!userScore || !userName) {
+//     return;
+// } else {
+//     userScoreSpan.textContent = userScore;
+//     userNameSpan.textContent = userName;
+// }
 // }
 
-// var hidden = false;
-// function action() {
-//     hidden = !hidden;
-//     if(hidden) {
-//         document.getElementById('togglee').style.visibility = 'hidden';
-//     } else {
-//         document.getElementById('togglee').style.visibility = 'visible';
-//     }
-// }
 
-// function hideStartBtn() {
-//     var x = document.getElementById("start-btn");
-//     if (x.style.display === "none") {
-//       x.style.display = "block";
-//     } else {
-//       x.style.display = "none";
+submitBtn.addEventListener("click",function(event) {
+    event.preventDefault();
 
-// }
+    let userName = document.getElementById("lname").value;
+    let finalScore = score+time;
+    
+    localStorage.setItem("User Name", userName);
+    localStorage.setItem("User Score", JSON.stringify(finalScore));
 
-// function timeUp() {
-//     if (time == 0) {
-//     prompt("GAME OVER!");
-//     showScore();
-// }
+    alert("Your information has been saved")
+
+    document.getElementById('quiz_display').style.visibility='hidden';
+});
+
+clearBtn.addEventListener("click",function(event) {
+    event.preventDefault();
+
+    window.localStorage.clear();
+});

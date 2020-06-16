@@ -39,8 +39,14 @@ background-size: cover;
     font-size: 40px;
 }
 
+#userName {
+    margin-right: auto;
+    margin-left: auto;
+}
+
 #YourName {
     text-align: center;
+    display: block;
 }
 
 .button {
