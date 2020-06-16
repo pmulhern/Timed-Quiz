@@ -43,41 +43,66 @@
             <div class="col-sm-12">
                 <h5 class="card-title" id="quiz_window" >Quiz Window</h5>
                 <div id = "count">Time: </div>
-            </div> 
-                
+            </div>   
         </div>
         
         <hr class="mx-5">   
-         
+        
         <div class="row"> 
           <div class="col-sm-12">
-              <h3 id="question"> Clap your hands everbody for Philadelphia 76ers </h3> 
+              <p class="noclass" id="userScore"></p>
+          </div>
+        </div> 
+        
+        <div class="row"> 
+          <div class="col-sm-12">
+              <h3 id="question"> Clap your hands everbody for Philadelphia 76ers! </h3> 
           </div>
         </div>
 
         <div class="row"> 
           <div class="col-sm-12">
-              <button class="button" id="A" onclick="checkAnswer('A')">1, 2, 3-4-5 </button>
+              <h5 id="YourName"></h5>
           </div>
         </div>
-          
-        <div class="row"> 
-          <div class="col-sm-12">
-              <button class="button" id="B" onclick="checkAnswer('B')">Sixers</button>
-          </div>
-        </div>
+        
+        <br>
 
         <div class="row"> 
-          <div class="col-sm-12">
+          <div class="col-sm-2">
+            <div id="hidden"></div>
+          </div>
+          <div class="col-sm-4">
+            <button class="button" id="A" onclick="checkAnswer('A')">1, 2, 3-4-5 </button>
+          </div>
+          <div class="col-sm-4">
+            <button class="button" id="B" onclick="checkAnswer('B')">Sixers</button>
+          </div>
+          <div class="col-sm-2">
+            <div id="hidden"></div>
+          </div>
+        </div>
+        
+        <br>
+
+        <div class="row"> 
+          <div class="col-sm-2">
+            <div id="hidden"></div>
+          </div>
+          <div class="col-sm-4">
               <button class="button" id="C" onclick="checkAnswer('C')">10, 9, 8</button>
           </div>
+          <div class="col-sm-4">
+            <button class="button" id="D" onclick="checkAnswer('D')">76ers</button>
+          </div>
+          
         </div>
           
-        <div class="row"> 
+        <!-- <div class="row"> 
           <div class="col-sm-12">
               <button class="button" id="D" onclick="checkAnswer('D')">76ers</button>
           </div>
-        </div>
+        </div> -->
         
         <hr class="mx-5">  
         

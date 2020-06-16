@@ -1,12 +1,12 @@
 //create a timer set to 60 seconds
-var time = 60
+var time = 5
 
 function timer() {
     var x = setInterval(function() {
     document.getElementById("count").innerHTML="Time:"+" "+time+" seconds";
     time=time-1;
 
-    if(time <=0) {
+    if(time <=-1) {
             clearInterval(x);    
         }else if (
             currentQuestionIndex >= lastQuestion)
@@ -136,9 +136,15 @@ function showQuestion () {
     document.getElementById("D").innerHTML=questions[currentQuestionIndex].choiceD;
 }
 
-//Hide the quiz form.  Function called at end of quiz.
+
+// Hide the quiz form.  Function called at end of quiz.
 function hideQuizForm () {
-    document.getElementById('quiz_display').style.visibility='hidden';
+    document.getElementById('question').style.visibility='hidden';
+    document.getElementById('A').style.visibility='hidden';
+    document.getElementById('B').style.visibility='hidden';
+    document.getElementById('C').style.visibility='hidden';
+    document.getElementById('D').style.visibility='hidden';
+    document.getElementById('userScore').innerText="You Score is " + score*10;
 }
 
 function checkAnswer(answer){
@@ -157,17 +163,17 @@ function checkAnswer(answer){
         showQuestion();
     }else{
         // end the quiz and show the score
-        showScore();
+        // showScore();
         hideQuizForm();
     }
     
 }
 
-function showScore() {
-    alert("Your score is " + score)
-    console.log(score)
-    return
-}
+// function showScore() {
+//     alert("Your score is " + score)
+//     console.log(score)
+//     return
+// }
 
 // var hidden = false;
 // function action() {
@@ -193,4 +199,3 @@ function showScore() {
 //     prompt("GAME OVER!");
 //     showScore();
 // }
-

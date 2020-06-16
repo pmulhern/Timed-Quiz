@@ -33,17 +33,48 @@ background-size: cover;
     text-align: center;
 }
 
+#userScore {
+    text-align: center;
+    font-weight: 500;
+    font-size: 40px;
+}
+
+#YourName {
+    text-align: center;
+}
+
 .button {
     display: inline-block;
     width : 135px;
-    text-align: center;
     border : 1px solid grey;
     border-radius: 5px;
     cursor: pointer;
     padding : 5px;
-    margin : 5px 0px 5px 230px
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
     
   }
+
+  
+/* #A {
+display: grid;
+display: grid;
+}
+  
+#B {
+margin-left: 5px;  
+}
+
+#C {
+margin-left: 120px;
+}
+
+#D {
+margin-left: 5px;
+} */
 
   #display {
     font-size: x-large;
