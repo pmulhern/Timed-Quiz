@@ -157,11 +157,8 @@ function showQuestion () {
     document.getElementById("D").innerHTML=questions[currentQuestionIndex].choiceD;
 }
 
-
-
 document.getElementById('userName').style.display = "none";
 // document.getElementById('retake-btn').style.visibility='hidden';
-
 
 // Hide the quiz form.  Function called at end of quiz.
 function hideQuizForm () {
@@ -197,6 +194,96 @@ function checkAnswer(answer){
     
 }
 
+
+// let localUserName = [];
+// let localFinalScore = [];
+
+// submitBtn.addEventListener("click",function(event) {
+//     event.preventDefault();
+
+//     let userName = document.getElementById("lname").value;
+//     let finalScore = score+time;  
+
+//     localUserName.push(userName)
+//     localFinalScore.push(finalScore)
+  
+//     localStorage.setItem("User Name", JSON.stringify(localUserName));
+//     localStorage.setItem("User Score", JSON.stringify(localFinalScore));
+    
+// });
+
+let localUserName = [];
+let localFinalScore = [];
+
+let storedUserName = [];
+let storedFinalScore = [];
+
+    submitBtn.addEventListener("click",function(event, localUserName, localFinalScore) {
+    event.preventDefault();
+
+    if(localStorage.getItem("User Name") === null ) {
+    let userName = document.getElementById("lname").value;
+    let finalScore = score+time;  
+
+    localUserName.push(userName)
+    localFinalScore.push(finalScore)
+  
+    localStorage.setItem("User Name", JSON.stringify(localUserName));
+    localStorage.setItem("User Score", JSON.stringify(localFinalScore));
+    } else {       
+
+        let userName = document.getElementById("lname").value;
+        let finalScore = score+time;  
+    
+        let storedUserName = JSON.parse(localStorage.getItem("User Name"));
+        let storedFinalScore =  JSON.parse(localStorage.getItem("User Score"));
+
+        storedUserName.push(userName)
+        storedFinalScore.push(finalScore)
+        
+        localStorage.setItem("User Name", JSON.stringify(storedUserName));
+        localStorage.setItem("User Score", JSON.stringify(storedFinalScore));
+
+    }
+
+        alert("Your information has been saved")
+
+        document.getElementById('quiz_display').style.visibility='hidden';
+});
+
+
+
+clearBtn.addEventListener("click",function(event) {
+    event.preventDefault();
+
+    window.localStorage.clear();
+});
+
+    // else {
+        
+    // let storedUserName = JSON.parse(localStorage.getItem("User Name"));
+    // let localUserName2 = localUserName;
+    // storedUserName.push(localUserName2);
+    // localStorage.setItem("User Name", JSON.stringify(storedUserName));
+
+    // let storedFinalScore = JSON.parse(localStorage.getItem("User Score"));
+    // let localFinalScore2 = localFinalScore;
+    // storedFinalScore.push(localFinalScore2);
+    // localStorage.setItem("User Score", JSON.stringify(storedFinalScore));
+
+    // }
+    // alert("Your information has been saved")
+
+    // document.getElementById('quiz_display').style.visibility='hidden';
+
+
+    // clearBtn.addEventListener("click",function(event) {
+//     event.preventDefault();
+
+//     window.localStorage.clear();
+// });
+
+
 // function renderLastRegistered() {
 // var userScore = localStorage.getItem("userScore");
 // var userName = localStorage.getItem("userName");
@@ -210,22 +297,22 @@ function checkAnswer(answer){
 // }
 
 
-submitBtn.addEventListener("click",function(event) {
-    event.preventDefault();
+// submitBtn.addEventListener("click",function(event) {
+//     event.preventDefault();
 
-    let userName = document.getElementById("lname").value;
-    let finalScore = score+time;
-    
-    localStorage.setItem("User Name", userName);
-    localStorage.setItem("User Score", JSON.stringify(finalScore));
+//     let userName = document.getElementById("lname").value;
+//     let finalScore = score+time;
 
-    alert("Your information has been saved")
+//     let localUserName = [];
+//     let localFinalScore = [];
 
-    document.getElementById('quiz_display').style.visibility='hidden';
-});
+//     localUserName.push(userName)
+//     localFinalScore.push(finalScore)
+  
+//     localStorage.setItem("User Name", JSON.stringify(localUserName));
+//     localStorage.setItem("User Score", JSON.stringify(localFinalScore));
 
-clearBtn.addEventListener("click",function(event) {
-    event.preventDefault();
+//     alert("Your information has been saved")
 
-    window.localStorage.clear();
-});
+//     document.getElementById('quiz_display').style.visibility='hidden';
+// });
