@@ -1,12 +1,11 @@
 /* Adding the background to all 3 html pages*/
 body {
-background-image: url(team_pic.jpg);
-background-size: cover;
-}
+    background-image: url(team_pic.jpg);
+    background-size: cover;
+    }
 
 /* Formatting my name on the nav bar*/
 #brand {
-
     font-size: xx-large;
     margin: 15px, 10px, 15px, 10px;
     padding: 15px, 10px, 15px, 10px;
@@ -87,25 +86,32 @@ background-size: cover;
 
 /* Formatting for the Header on the About Me tab*/
 #question {
-color: black;
-font-weight: bold;
-font-size: large;
-text-align: left;
-margin-left: 47px;
-}
+    color: black;
+    font-weight: bold;
+    font-size: large;
+    text-align: left;
+    margin-left: 47px;
+    }
 
 #song {
-color: white;
-    
-}
+    color: white;
+    }
 
 /* Formatting the line that separates the headers from the sections on the main cards/ forms*/  
 hr {
-        display: block;
-        height: 10px;
-        border: 0;
-        border-top: 1px solid #ccc;
-        margin: 1em 0;
-        padding: 0;
+    display: block;
+    height: 10px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+    }
+
+#highScores {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    width: 180px;   
     }
 
