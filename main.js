@@ -223,7 +223,10 @@ let storedFinalScore = [];
 
     if(localStorage.getItem("User Name") === null ) {
     let userName = document.getElementById("lname").value;
-    let finalScore = score+time;  
+    let finalScore = score+time; 
+    
+    let localUserName = [];
+    let localFinalScore = [];
 
     localUserName.push(userName)
     localFinalScore.push(finalScore)

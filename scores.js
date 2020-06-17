@@ -1,8 +1,5 @@
 let storedUserName = JSON.parse(localStorage.getItem("User Name"));
-console.log(storedUserName)
 let storedFinalScore =  JSON.parse(localStorage.getItem("User Score"));
-console.log(storedFinalScore)
-
 
 // var scores = [
 //     storedUserName, 
@@ -47,14 +44,14 @@ function highScores() {
                 user[j] = user [i]
                 user[i] = tempUser
                 
-         } console.log(i,j,score[i],score[j])
+         }
         }
-    } console.log(score, user) 
+    } 
                 let htmlText = ""
     for (var j = 0; j < score.length; j++) {
         htmlText += `<p class='innerScore'> ${j+1+")"} ${user[j]}: ${score[j]} </p>`
 
-    } console.log(htmlText)
+    } 
     document.getElementById("highScores").innerHTML =htmlText;
 }
 highScores();
