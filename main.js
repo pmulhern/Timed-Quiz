@@ -253,11 +253,17 @@ let storedFinalScore = [];
 
 
 
-clearBtn.addEventListener("click",function(event) {
+    clearBtn.addEventListener("click",function(event) {
     event.preventDefault();
 
     window.localStorage.clear();
 });
+
+
+    storedUserName = JSON.parse(localStorage.getItem("User Name"));
+    console.log(storedUserName)
+    storedFinalScore =  JSON.parse(localStorage.getItem("User Score"));
+    console.log(storedFinalScore)
 
     // else {
         
