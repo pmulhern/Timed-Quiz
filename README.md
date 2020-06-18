@@ -31,3 +31,5 @@ The High Scores Page is a separte HTML with separate Javascript
 
 
 Link to site https://pmulhern.github.io/timedQuiz/
+
+![](Final_Product.jpg)
