@@ -4,33 +4,35 @@ body {
     background-size: cover;
     }
 
-/* Formatting my name on the nav bar*/
+/* Formatting Test Your Sixers Knowledge!! text on the nav bar*/
 #brand {
     font-size: xx-large;
     margin: 15px, 10px, 15px, 10px;
     padding: 15px, 10px, 15px, 10px;
     }
 
-/* Adding the Hover Format to the About, Contact Me and Portfolio links on the nav bar*/
+/* Adding the Hover Format to the Start Quiz, High Scores and Retake Quiz selectors on the Nav Bar*/
 .nav-link:hover {
     background-color: blue;
     }
 
-/* Adding an Active Format to the About, Contact Me and Portfolio links on the nav bar*/
+/* Adding an Active Format to links on the nav bar*/
 .nav-link:active {
     font-size: x-large;
     font-weight: bold;
     }
 
-/* Centers the About Me Card on the About tab*/
+/* Centers Quiz Card and High Scores cards*/
 #quiz_display {
     margin-right: auto;
     margin-left: auto;
 }
 
+/* Centering the timer that will run during the quiz */
 #count {
     text-align: center;
 }
+
 
 #userScore {
     text-align: center;
@@ -43,11 +45,13 @@ body {
     margin-left: auto;
 }
 
+
 #YourName {
     text-align: center;
     display: block;
 }
 
+/* Formatting the answer buttons */
 .button {
     display: inline-block;
     width : 135px;
@@ -65,7 +69,7 @@ body {
     vertical-align: middle;  
   }
 
-  
+  /* Formatting answer choices */
   #display {
     font-size: x-large;
     width : 135px;
@@ -84,7 +88,7 @@ body {
     text-align: center;
     }
 
-/* Formatting for the Header on the About Me tab*/
+/* Formatting for the questions*/
 #question {
     color: black;
     font-weight: bold;
@@ -93,6 +97,7 @@ body {
     margin-left: 47px;
     }
 
+/* Formatting the text surrounding the song */
 #song {
     color: white;
     }
@@ -107,6 +112,7 @@ hr {
     padding: 0;
     }
 
+/* Formatting data on the high scores page*/  
 #highScores {
     text-align: left;
     margin-left: auto;

@@ -1,34 +1,9 @@
+
+// Pulling stored scores from local storage
 let storedUserName = JSON.parse(localStorage.getItem("User Name"));
 let storedFinalScore =  JSON.parse(localStorage.getItem("User Score"));
 
-// var scores = [
-//     storedUserName, 
-//     storedFinalScore ]
-
-
-// function makeUL(array) {
-//     // Create the list element:
-//     var list = document.createElement('ol');
-
-//     for (var i = 0; i < array.length; i++) {
-//         // Create the list item:
-//         var item = document.createElement('li');
-
-//         // Set its contents:
-//         item.appendChild(document.createTextNode(array[i]));
-
-//         // Add it to the list:
-//         list.appendChild(item);
-//     }
-
-//     // Finally, return the constructed list:
-//     return list;
-// }
-
-// Add the contents of options[0] to #foo:
-// document.getElementById('highScores').appendChild(makeUL(scores[1]));
-
-
+// Below is a bubble sort to sort the scores from Highest to Lowest on the Scoreboard
 function highScores() {
     let score = storedFinalScore;
     let user = storedUserName;
@@ -47,14 +22,22 @@ function highScores() {
          }
         }
     } 
+    //Writing the User Name and Scores to the HTML
                 let htmlText = ""
     for (var j = 0; j < score.length; j++) {
         htmlText += `<p class='innerScore'> ${j+1+")"} ${user[j]}: ${score[j]} </p>`
 
     } 
-    document.getElementById("highScores").innerHTML =htmlText;
+    document.getElementById("highScores").innerHTML=htmlText;
 }
+// Calling the function
 highScores();
 
+// Adding a click function to clear the score board
+let clearBtn = document.getElementById("Clear");
 
-
+clearBtn.addEventListener("click",function(event) {
+    event.preventDefault();
+    window.localStorage.clear();
+    location.reload();
+})

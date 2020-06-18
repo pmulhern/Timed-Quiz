@@ -16,7 +16,7 @@ function timer() {
 }, 1000);
 }
 
-//create variables
+//create initial main variables
 let score = 0;
 let questionEl = document.getElementById("question");
 let choiceA = document.getElementById("A");
@@ -25,14 +25,11 @@ let choiceC = document.getElementById("C");
 let choiceD = document.getElementById("D");
 let runningQuestion = 0;
 let currentQuestionIndex;
-
-// let userScoreSpan = document.querySelector("userScore");
-// let userNameSpan = document.querySelector("userName");
 let submitBtn = document.getElementById("Submit");
 let clearBtn = document.getElementById("Clear");
 let userScore = score;
 
-// create our questions
+// array of questions for the quiz
 let questions = [
     {
         question : "Who is the starting Center for 76ers?",
@@ -50,10 +47,10 @@ let questions = [
         correct : "B"
     },{
         question : "Who did Tobias Harris play for before the 76ers?",
-        choiceA : "Minnesota Timberwolves",
-        choiceB : "Chicago Bulls",
-        choiceC : "LA Clippers",
-        choiceD : "Miami Heat",
+        choiceA : "Timberwolves",
+        choiceB : "Bulls",
+        choiceC : "Clippers",
+        choiceD : "Heat",
         correct : "C"
     },{
         question : "Who is the 76ers current Head Coach?",
@@ -95,7 +92,7 @@ let questions = [
         choiceA : "Ben Simmons",
         choiceB : "Allen Iverson",
         choiceC : "Joel Embiid",
-        choiceD : "Michael Carter Williams",
+        choiceD : "Michael Williams",
         correct : "C"
     },{
         question : "Who is the all time point leader?",
@@ -108,6 +105,7 @@ let questions = [
    
 ];
 
+// Function to capture name for high score
 function enterName() {
     let userName = getElementById("userName").value;
 }
@@ -125,13 +123,12 @@ const retakeButton = document.getElementById("retake-btn")
 retakeButton.addEventListener("click", retakeQuiz)
 
 
-
 function ReTakeBtn() {
     document.getElementById("retake-btn").id = "newid";
 }
 
 
-
+// Function of functions.  Function, sets currentQuestion Index to zero starts timer and sets questions.  This is one of the main functions in the JS.
 function startQuiz() {
     currentQuestionIndex = 0;
     setNextQuestion();
@@ -141,14 +138,17 @@ function startQuiz() {
        
 }
 
+//Reloads or refreshes the screen.  Run After the quiz is taken.
 function retakeQuiz () {
     location.reload();
 }
+
 
 function setNextQuestion() {
     showQuestion(currentQuestionIndex)
 }
 
+//This function maps each question and answer group in our array to the HTML.
 function showQuestion () {
     document.getElementById("question").innerHTML=questions[currentQuestionIndex].question;
     document.getElementById("A").innerHTML=questions[currentQuestionIndex].choiceA;
@@ -157,21 +157,8 @@ function showQuestion () {
     document.getElementById("D").innerHTML=questions[currentQuestionIndex].choiceD;
 }
 
-document.getElementById('userName').style.display = "none";
-// document.getElementById('retake-btn').style.visibility='hidden';
 
-// Hide the quiz form.  Function called at end of quiz.
-function hideQuizForm () {
-    document.getElementById('question').style.visibility='hidden';
-    document.getElementById('A').style.visibility='hidden';
-    document.getElementById('B').style.visibility='hidden';
-    document.getElementById('C').style.visibility='hidden';
-    document.getElementById('D').style.visibility='hidden';
-    document.getElementById('display').style.visibility='hidden';
-    document.getElementById('userScore').innerText="Your Score is " + parseInt(score+time);
-    document.getElementById("userName").style.display = "block";
-}
-
+// This function is also a main driver.  It grades questions, adds points for correct questions, removes time for incorrect questions and scrolls through the questions until the end of the question index or time runs out.
 function checkAnswer(answer){
     if( answer == questions[currentQuestionIndex].correct && time > 0) {
         // answer is correct
@@ -195,23 +182,22 @@ function checkAnswer(answer){
 }
 
 
-// let localUserName = [];
-// let localFinalScore = [];
+document.getElementById('userName').style.display = "none";
 
-// submitBtn.addEventListener("click",function(event) {
-//     event.preventDefault();
+// Hide the quiz form.  Function called at end of quiz. And after we will show input box to enter name for high score record.
+function hideQuizForm () {
+    document.getElementById('question').style.visibility='hidden';
+    document.getElementById('A').style.visibility='hidden';
+    document.getElementById('B').style.visibility='hidden';
+    document.getElementById('C').style.visibility='hidden';
+    document.getElementById('D').style.visibility='hidden';
+    document.getElementById('display').style.visibility='hidden';
+    document.getElementById('userScore').innerText="Your Score is " + parseInt(score+time);
+    document.getElementById("userName").style.display = "block";
+}
 
-//     let userName = document.getElementById("lname").value;
-//     let finalScore = score+time;  
 
-//     localUserName.push(userName)
-//     localFinalScore.push(finalScore)
-  
-//     localStorage.setItem("User Name", JSON.stringify(localUserName));
-//     localStorage.setItem("User Score", JSON.stringify(localFinalScore));
-    
-// });
-
+// This section pushes user score and name to the local storage
 let localUserName = [];
 let localFinalScore = [];
 
@@ -255,73 +241,15 @@ let storedFinalScore = [];
 });
 
 
-
-    clearBtn.addEventListener("click",function(event) {
-    event.preventDefault();
-
-    window.localStorage.clear();
-});
-
-
-    storedUserName = JSON.parse(localStorage.getItem("User Name"));
-    console.log(storedUserName)
-    storedFinalScore =  JSON.parse(localStorage.getItem("User Score"));
-    console.log(storedFinalScore)
-
-    // else {
-        
-    // let storedUserName = JSON.parse(localStorage.getItem("User Name"));
-    // let localUserName2 = localUserName;
-    // storedUserName.push(localUserName2);
-    // localStorage.setItem("User Name", JSON.stringify(storedUserName));
-
-    // let storedFinalScore = JSON.parse(localStorage.getItem("User Score"));
-    // let localFinalScore2 = localFinalScore;
-    // storedFinalScore.push(localFinalScore2);
-    // localStorage.setItem("User Score", JSON.stringify(storedFinalScore));
-
-    // }
-    // alert("Your information has been saved")
-
-    // document.getElementById('quiz_display').style.visibility='hidden';
-
-
-    // clearBtn.addEventListener("click",function(event) {
+// This assigns the clearBtn and clears out the scores stored in the local storage
+//     clearBtn.addEventListener("click",function(event) {
 //     event.preventDefault();
 
 //     window.localStorage.clear();
 // });
 
-
-// function renderLastRegistered() {
-// var userScore = localStorage.getItem("userScore");
-// var userName = localStorage.getItem("userName");
-
-// if (!userScore || !userName) {
-//     return;
-// } else {
-//     userScoreSpan.textContent = userScore;
-//     userNameSpan.textContent = userName;
-// }
-// }
-
-
-// submitBtn.addEventListener("click",function(event) {
-//     event.preventDefault();
-
-//     let userName = document.getElementById("lname").value;
-//     let finalScore = score+time;
-
-//     let localUserName = [];
-//     let localFinalScore = [];
-
-//     localUserName.push(userName)
-//     localFinalScore.push(finalScore)
-  
-//     localStorage.setItem("User Name", JSON.stringify(localUserName));
-//     localStorage.setItem("User Score", JSON.stringify(localFinalScore));
-
-//     alert("Your information has been saved")
-
-//     document.getElementById('quiz_display').style.visibility='hidden';
-// });
+// I created this part to confirm the pull from local storage was working correctly.  Not an essential part of the code, more of a control for the developer.
+    storedUserName = JSON.parse(localStorage.getItem("User Name"));
+    console.log(storedUserName)
+    storedFinalScore =  JSON.parse(localStorage.getItem("User Score"));
+    console.log(storedFinalScore)

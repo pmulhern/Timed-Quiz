@@ -1,42 +1,33 @@
-# 04 Web APIs: Code Quiz
+# Timed Quiz
 
-As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. Build a timed code quiz with multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+This project is a question multiple choice quiz on a topic of my choosing.  The content will the The Philadelphia 76ers basketball team
 
-## User Story
 
-```
-AS A coding bootcamp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
-
-## Acceptance Criteria
+## Quiz Design
 
 ```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
+User has 60 seconds to answer 10 multiple choice questions
+Correct answers will be worth 10 points each
+Incorrect answers will deduct 5 seconds from the timer
+Total score will include points for correctly answered questions and a time bonus added on top
+When the quiz is over... either by answering all questions or when time runs out... the user will be able to enter their name and placed on the leaderboard
 ```
 
-The following animation demonstrates the application functionality:
+## Site navigation, high scores and local storage
 
-![code quiz](./Assets/04-web-apis-homework-demo.gif)
+```
+There is a navigation bar on the main home page that shows Start Quiz, High Scores and Retake Quiz
+    Start Quiz will start the timer and launch questions
+    High Scores will take user to a second HTML page where they can see the scores of other users
+    Retake Quiz will be used to reset the Q&A back to the beginning
+The main window shows the user instructions until the Start Quix button is selected
+There is also an option to play they 76ers theme song on the main page
+The High Scores Page is a separte HTML with separate Javascript
+    Page shows uder name and their scores and sorts the scres from highest to lowest
+    Page has two buttons in the navigation bar:
+        Return to Quiz - Takes user back to main HTML/ Quiz UI
+        Clear Scores - Will clear data from the local storage
+```
 
-### Review
 
-You are required to submit the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+Link to site https://pmulhern.github.io/timedQuiz/

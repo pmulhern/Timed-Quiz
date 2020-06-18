@@ -13,7 +13,7 @@
   </head>
   <body>
 
-    <!-- Navigation bar leveraging bootstrap framework: About, Contact & Portfolio links -->
+    <!-- Navigation bar leveraging bootstrap framework -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">  <img src="bell.jpg" alt="LibertyBell">  </a>
         <a class="navbar-brand" id="brand" href="#"> Test Your Sixers Knowledge!!</a>
@@ -26,7 +26,7 @@
               <a class="nav-link" id="start-btn">Start Quiz <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="highscores.html">See High Scores <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="highscores.html">High Scores <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="retake-btn">Retake Quiz <span class="sr-only">(current)</span></a>
@@ -38,7 +38,7 @@
   
     <br> <br>
    
-    <!-- Main About Me Section.  Leveraging a card class from Bootstrap for responsive formatting -->
+    <!-- Main form that stored Q&A elements.  Leveraging a card class from Bootstrap for responsive formatting -->
     <Main class="card mb-12 hide" id ="quiz_display" style="max-width: 600px;">
         <div class="row">
             <div class="col-sm-12">
@@ -57,7 +57,7 @@
         
         <div class="row"> 
           <div class="col-sm-12">
-              <h3 id="question"> Clap your hands everbody for Philadelphia 76ers! </h3> 
+              <h3 id="question"> This is a 60 second quiz on the Philadelphia 76ers.  <br>Press <u>Start Quiz</u> above to begin. </h3> 
           </div>
         </div>
 
@@ -66,7 +66,6 @@
             <label for="lname">Enter Name:</label>
             <input type="text" id="lname" name="lname"><br><br>
             <input type="submit" value="Submit" id="Submit">
-            <input type="submit" value="Clear Scores" id="Clear">
           </div>
         </div>
         
@@ -101,13 +100,7 @@
           </div>
           
         </div>
-          
-        <!-- <div class="row"> 
-          <div class="col-sm-12">
-              <button class="button" id="D" onclick="checkAnswer('D')">76ers</button>
-          </div>
-        </div> -->
-        
+                 
         <hr class="mx-5">  
         
         <div class="row"> 
@@ -123,7 +116,9 @@
 
    <br> <br>
    
-<script src="main.js"></script>  
+  <script src="main.js"></script>  
+  
+  <!-- Sixers theme song stored here -->
   <h3 id="song">"Play Theme Song!"</h3>
   <audio id="audio" controls autoplay loop>
       <source src="theme_song.mp3" type="audio/mpeg">
