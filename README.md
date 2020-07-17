@@ -2,6 +2,10 @@
 
 This project is a question multiple choice quiz on a topic of my choosing.  The tobic will be the The Philadelphia 76ers basketball team.
 
+Deployed Application https://pmulhern.github.io/timedQuiz/
+
+![](Final_Product.jpg)
+
 
 ## Quiz Design
 
@@ -30,6 +34,4 @@ The High Scores Page is a separte HTML with separate Javascript
 ```
 
 
-Link to site https://pmulhern.github.io/timedQuiz/
 
-![](Final_Product.jpg)
