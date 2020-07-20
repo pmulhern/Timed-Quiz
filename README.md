@@ -1,6 +1,6 @@
 # Timed Quiz
 
-This project is a question multiple choice quiz on a topic of my choosing.  The tobic will be the The Philadelphia 76ers basketball team.
+This project is a question multiple choice quiz on a topic of my choosing.  The topic will be the The Philadelphia 76ers basketball team.
 
 Deployed Application: https://pmulhern.github.io/timedQuiz/
 
