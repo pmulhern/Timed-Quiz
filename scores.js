@@ -41,3 +41,5 @@ clearBtn.addEventListener("click",function(event) {
     window.localStorage.clear();
     location.reload();
 })
+
+// END JS Code
