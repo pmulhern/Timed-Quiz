@@ -253,3 +253,5 @@ let storedFinalScore = [];
     console.log(storedUserName)
     storedFinalScore =  JSON.parse(localStorage.getItem("User Score"));
     console.log(storedFinalScore)
+
+// End JS Code
