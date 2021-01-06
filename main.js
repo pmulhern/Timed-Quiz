@@ -54,10 +54,10 @@ let questions = [
         correct : "C"
     },{
         question : "Who is the 76ers current Head Coach?",
-        choiceA : "Maurice Cheeks",
+        choiceA : "Brett Brown",
         choiceB : "Doug Collins",
         choiceC : "Larry Brown",
-        choiceD : "Brett Brown",
+        choiceD : "Doc Rivers",
         correct : "D"
     },{
         question : "Allen Iverson's nickname was...",
